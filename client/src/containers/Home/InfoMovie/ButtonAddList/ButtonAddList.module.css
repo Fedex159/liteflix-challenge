@@ -1,0 +1,23 @@
+.container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(36, 36, 36, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 248px;
+  height: 56px;
+}
+
+.container button:hover {
+  cursor: pointer;
+}
+
+.title {
+  margin: 0;
+  font-family: "Bebas Neue";
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: white;
+}
