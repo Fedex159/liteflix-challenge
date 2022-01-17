@@ -1,0 +1,28 @@
+.container {
+  margin-top: auto;
+  margin-bottom: 150px;
+  padding: 10px 184px 10px 184px;
+  box-sizing: border-box;
+}
+
+.subtitle {
+  margin: 0;
+  color: white;
+  font-weight: lighter;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.title {
+  margin: 0;
+  color: #64eebc;
+  font-weight: bold;
+  font-size: 120px;
+  letter-spacing: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+}
