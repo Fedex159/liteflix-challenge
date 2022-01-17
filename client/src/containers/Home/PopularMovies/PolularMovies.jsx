@@ -10,6 +10,7 @@ const movies = [
   { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
   { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
   { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
+  // { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
 ];
 
 function PopularMovies() {
