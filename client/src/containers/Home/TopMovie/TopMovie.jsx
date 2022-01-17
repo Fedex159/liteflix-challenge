@@ -1,9 +1,9 @@
 import React from "react";
 import ButtonPlay from "./ButtonPlay/ButtonPlay";
 import ButtonAddList from "./ButtonAddList/ButtonAddList";
-import s from "./InfoMovie.module.css";
+import s from "./TopMovie.module.css";
 
-function InfoMovie({ title, subtitle }) {
+function TopMovie({ title, subtitle }) {
   return (
     <div className={s.container}>
       <h4 className={s.subtitle}>{subtitle}</h4>
@@ -16,4 +16,4 @@ function InfoMovie({ title, subtitle }) {
   );
 }
 
-export default InfoMovie;
+export default TopMovie;
