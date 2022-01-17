@@ -1,0 +1,11 @@
+.container h2 {
+  margin: 0;
+  color: #64eebc;
+  font-weight: lighter;
+  font-size: 34px;
+  width: fit-content;
+}
+
+.container strong {
+  font-weight: bold;
+}
