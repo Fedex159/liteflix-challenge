@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.container img {
+  padding-bottom: 3px;
+}
+
+.container button {
+  border: none;
+  background: none;
+  color: white;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 4px;
+  padding-left: 8px;
+}
+
+.container button:hover {
+  cursor: pointer;
+}
