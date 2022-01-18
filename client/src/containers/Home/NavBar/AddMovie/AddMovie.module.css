@@ -10,7 +10,7 @@
   padding-bottom: 3px;
 }
 
-.container button {
+.addMovie {
   border: none;
   background: none;
   color: white;
@@ -21,6 +21,6 @@
   padding-left: 8px;
 }
 
-.container button:hover {
+.addMovie:hover {
   cursor: pointer;
 }
