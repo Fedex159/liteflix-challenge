@@ -3,7 +3,7 @@ import Star from "../../../../assets/imgs/Star.png";
 import s from "./CardMovie.module.css";
 
 // ‣
-function CardMovie({ title, img, rating, year }) {
+function CardMovie({ title, img, ranking, year }) {
   return (
     <div className={s.container} style={{ backgroundImage: `url(${img})` }}>
       <div className={s.play}></div>
@@ -11,7 +11,7 @@ function CardMovie({ title, img, rating, year }) {
       <div className={s.infoHover}>
         <div>
           <img src={Star} alt="star" />
-          <h5>{rating}</h5>
+          <h5>{ranking}</h5>
         </div>
         <h5>{year}</h5>
       </div>
