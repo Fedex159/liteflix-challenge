@@ -1,0 +1,88 @@
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000042;
+  z-index: 10;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 730px;
+  height: 440px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #242424;
+}
+
+.close {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.boxTitle {
+  margin-bottom: auto;
+  color: #64eebc;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.inputTitle {
+  width: 248px;
+  height: 30px;
+  color: white;
+  font-size: 16px;
+  font-family: "Bebas Neue";
+  letter-spacing: 4px;
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-bottom: 69px;
+}
+
+.inputTitle:focus {
+  outline: none;
+}
+
+.box input::placeholder {
+  color: white;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.uploadButton {
+  border: none;
+  font-family: "Bebas Neue";
+  font-size: 18px;
+  letter-spacing: 4px;
+  width: 248px;
+  height: 56px;
+  margin-bottom: 20px;
+}
+
+.uploadButton:hover {
+  cursor: pointer;
+}
+
+.uploadButtonOff {
+  opacity: 0.5;
+}
