@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DropDown from "./DropDown/DropDown";
 import CardMovie from "./CardMovie/CardMovie";
-import img from "../../../assets/imgs/Bkg.png";
+import { getMovies } from "../../../utils/index";
 import s from "./PopularMovies.module.css";
 
 const options = ["Populares", "Mis películas"];
-const movies = [
-  { title: "La  papel", img: img, rating: 7.8, year: 2015 },
-  { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
-  { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
-  { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
-  // { title: "La casa de papel", img: img, rating: 7.8, year: 2015 },
-];
 
 function PopularMovies() {
   const [option, setOption] = useState(options[0]);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    getMovies("popular")
+      .then((data) => setMovies(data))
+      .catch((e) => console.log(e));
+  }, []);
 
   return (
     <div className={s.container}>
@@ -25,7 +25,7 @@ function PopularMovies() {
             key={i}
             title={m.title}
             img={m.img}
-            rating={m.rating}
+            ranking={m.ranking}
             year={m.year}
           />
         ))}
