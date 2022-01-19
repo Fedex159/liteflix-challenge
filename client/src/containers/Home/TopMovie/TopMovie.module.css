@@ -11,6 +11,10 @@
   letter-spacing: 4px;
 }
 
+.subtitle strong {
+  font-weight: bold;
+}
+
 .title {
   margin: 0;
   color: #64eebc;
