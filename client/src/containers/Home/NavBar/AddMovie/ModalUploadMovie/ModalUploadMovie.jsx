@@ -5,6 +5,7 @@ import UploadProgress from "./UploadProgress/UploadProgress";
 import UploadInput from "./UploadInput/UploadInput";
 import UploadMessage from "./UploadMessage/UploadMessage";
 import cerrar from "../../../../../assets/imgs/cerrar.png";
+import { addMovieToDB } from "../../../../../utils";
 import s from "./ModalUploadMovie.module.css";
 
 function ModalUploadMovie({ handleModal }) {
@@ -44,9 +45,14 @@ function ModalUploadMovie({ handleModal }) {
   };
 
   const retryUpload = () => {
-    setIsUploading(false);
     setUploadError(false);
     setUploadPercentage(0);
+  };
+
+  const enableError = () => {
+    setIsUploading(false);
+    setUploadError(true);
+    setMovie((prev) => ({ ...prev, img: "" }));
   };
 
   const uploadImage = (file) => {
@@ -71,13 +77,20 @@ function ModalUploadMovie({ handleModal }) {
       .then((response) =>
         setMovie((prev) => ({ ...prev, img: response.data.secure_url }))
       )
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.message);
+        err.message && enableError();
+      });
 
     setCancelToken(source);
   };
 
   const handleInputFile = (event) => {
-    uploadImage(event.target.files[0]);
+    if (/image/gi.test(event.target.files[0].type)) {
+      uploadImage(event.target.files[0]);
+    } else {
+      enableError();
+    }
   };
 
   const handleDrop = (event) => {
@@ -85,7 +98,11 @@ function ModalUploadMovie({ handleModal }) {
     let file = null;
     if (event.dataTransfer.items[0].kind === "file") {
       file = event.dataTransfer.items[0].getAsFile();
-      uploadImage(file);
+      if (/image/gi.test(file.type)) {
+        uploadImage(file);
+      } else {
+        enableError();
+      }
     }
   };
 
@@ -95,9 +112,13 @@ function ModalUploadMovie({ handleModal }) {
 
   const handleSubmit = () => {
     if (enableSubmit) {
-      // Hacer axios post
-      // Manejar el error
-      setUploaded(true);
+      addMovieToDB(movie)
+        .then((data) => {
+          setUploaded(true);
+        })
+        .catch((err) => {
+          enableError();
+        });
     }
   };
 
