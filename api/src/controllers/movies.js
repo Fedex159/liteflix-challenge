@@ -1,6 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 const { API_KEY } = process.env;
+const { Movie } = require("../db");
 
 async function getNowPlayingMovie() {
   const { data } = await axios.get(
@@ -51,4 +52,18 @@ async function getMovies(req, res, next) {
   }
 }
 
-module.exports = { getMovies };
+async function addMovie(req, res, next) {
+  try {
+    const { title, img } = req.body;
+    if (title && img) {
+      const newMovie = await Movie.create(req.body);
+      res.json(newMovie);
+    } else {
+      res.status(400).json({ message: "Title and img is required" });
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { getMovies, addMovie };
