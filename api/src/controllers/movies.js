@@ -29,7 +29,10 @@ async function getPopularMovies() {
   return results;
 }
 
-function getMoviesFromDB() {}
+async function getMoviesFromDB() {
+  const results = await Movie.findAll({});
+  return results;
+}
 
 async function getMovies(req, res, next) {
   try {
@@ -43,6 +46,7 @@ async function getMovies(req, res, next) {
         res.json(await getPopularMovies());
         break;
       case "db":
+        res.json(await getMoviesFromDB());
         break;
       default:
         res.status(404).json({ message: "Only valid type movies" });
