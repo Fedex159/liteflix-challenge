@@ -1,0 +1,57 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  top: 100%;
+  width: 240px;
+  height: 96px;
+  background-color: #242424;
+  z-index: 5;
+  padding: 24px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.container button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+.container button:hover {
+  cursor: pointer;
+}
+
+.container button > h4 {
+  margin: 0;
+  color: white;
+  font-family: "Bebas Neue";
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+
+.container button > img {
+  margin-bottom: 5px;
+}
+
+.selected {
+  font-weight: bold !important;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 35px;
+  width: 15px;
+  height: 15px;
+  background-color: #242424;
+  transform: rotate(45deg);
+}
