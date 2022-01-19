@@ -12,9 +12,9 @@ function AddMovie() {
 
   return (
     <div className={s.container}>
-      <img src={plus} alt="plus" />
-      <button className={s.addMovie} onClick={handleModal}>
-        Agregar Película
+      <button className={s.button} onClick={handleModal}>
+        <img src={plus} alt="plus" />
+        <h4>Agregar Película</h4>
       </button>
       {showAddMovie ? <ModalUploadMovie handleModal={handleModal} /> : null}
     </div>

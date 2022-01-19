@@ -6,21 +6,28 @@
   margin-right: auto;
 }
 
-.container img {
-  padding-bottom: 3px;
-}
-
-.addMovie {
+.button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   border: none;
   background: none;
+  padding-left: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button h4 {
   color: white;
   font-family: "Bebas Neue";
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 4px;
-  padding-left: 8px;
+  margin: 0;
 }
 
-.addMovie:hover {
-  cursor: pointer;
+.button img {
+  padding-bottom: 4px;
 }
