@@ -2,7 +2,6 @@ import React from "react";
 import Star from "../../../../assets/imgs/Star.png";
 import s from "./CardMovie.module.css";
 
-// ‣
 function CardMovie({ title, img, ranking, year }) {
   return (
     <div className={s.container} style={{ backgroundImage: `url(${img})` }}>

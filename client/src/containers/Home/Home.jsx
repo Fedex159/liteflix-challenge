@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import NavBar from "./NavBar/NavBar";
 import TopMovie from "./TopMovie/TopMovie";
-import PopularMovies from "./PopularMovies/PolularMovies";
+import MoviesContainer from "./MoviesContainer/MoviesContainer";
 import { getMovies } from "../../utils";
 import s from "./Home.module.css";
 
@@ -42,7 +42,11 @@ function Home() {
         <NavBar />
         <div className={s.movies}>
           <TopMovie title={topMovie.title} />
-          <PopularMovies />
+          {option === "Populares" ? (
+            <MoviesContainer movies={popularMovies} />
+          ) : (
+            <MoviesContainer movies={myMovies} />
+          )}
         </div>
       </div>
     </StateGlobal.Provider>

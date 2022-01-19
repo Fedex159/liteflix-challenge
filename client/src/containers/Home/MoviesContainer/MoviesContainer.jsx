@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import DropDown from "./DropDown/DropDown";
 import CardMovie from "./CardMovie/CardMovie";
-import { StateGlobal } from "../Home";
-import s from "./PopularMovies.module.css";
+import s from "./MoviesContainer.module.css";
 
-function PopularMovies() {
-  const { popularMovies } = useContext(StateGlobal);
-
+function MoviesContainer({ movies }) {
   return (
     <div className={s.container}>
       <DropDown />
       <div className={s.movies}>
-        {popularMovies.map((m, i) => (
+        {movies.map((m, i) => (
           <CardMovie
             key={i}
             title={m.title}
@@ -25,4 +22,4 @@ function PopularMovies() {
   );
 }
 
-export default PopularMovies;
+export default MoviesContainer;
