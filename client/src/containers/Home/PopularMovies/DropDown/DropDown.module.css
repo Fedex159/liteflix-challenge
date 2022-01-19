@@ -1,10 +1,11 @@
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container button {
+.buttonOption {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@
   height: 18px;
 }
 
-.container button > h4 {
+.buttonOption h4 {
   margin: 0;
   font-weight: lighter;
   font-size: 18px;
@@ -24,11 +25,11 @@
   color: white;
 }
 
-.container button > img {
+.buttonOption img {
   width: 15px;
   margin-bottom: 5px;
 }
 
-.container button:hover {
+.buttonOption:hover {
   cursor: pointer;
 }
