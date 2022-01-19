@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UploadError from "./UploadError/UploadError";
 import UploadProgress from "./UploadProgress/UploadProgress";
@@ -6,9 +6,11 @@ import UploadInput from "./UploadInput/UploadInput";
 import UploadMessage from "./UploadMessage/UploadMessage";
 import cerrar from "../../../../../assets/imgs/cerrar.png";
 import { addMovieToDB } from "../../../../../utils";
+import { StateGlobal } from "../../../Home";
 import s from "./ModalUploadMovie.module.css";
 
 function ModalUploadMovie({ handleModal }) {
+  const { setMyMovies } = useContext(StateGlobal);
   const [movie, setMovie] = useState({ title: "", img: "" });
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState(false);
@@ -114,6 +116,7 @@ function ModalUploadMovie({ handleModal }) {
     if (enableSubmit) {
       addMovieToDB(movie)
         .then((data) => {
+          setMyMovies((prev) => [...prev, data]);
           setUploaded(true);
         })
         .catch((err) => {
