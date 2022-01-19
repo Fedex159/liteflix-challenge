@@ -8,3 +8,19 @@
   box-sizing: border-box;
   background-color: #00000044;
 }
+
+@media screen and (max-width: 1500px) {
+  .container {
+    padding: 20px 50px 20px 50px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    position: absolute;
+    display: grid;
+    grid-template-areas: "addMovie logo items";
+    background: none;
+    padding: 20px;
+  }
+}

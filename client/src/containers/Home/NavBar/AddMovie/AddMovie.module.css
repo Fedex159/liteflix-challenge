@@ -4,6 +4,7 @@
   color: white;
   margin-left: 64px;
   margin-right: auto;
+  grid-area: addMovie;
 }
 
 .button {
@@ -30,4 +31,28 @@
 
 .button img {
   padding-bottom: 4px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin: 0;
+  }
+
+  .button h4 {
+    display: none;
+  }
+
+  .button {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+  }
+
+  .button img {
+    padding: 0;
+    padding-right: 5px;
+    filter: drop-shadow(0 0 1px white);
+  }
 }

@@ -7,9 +7,9 @@ import s from "./NavItems.module.css";
 function NavItems() {
   return (
     <div className={s.container}>
-      <img src={Menu} alt="Menu" />
-      <img src={Notificación} alt="Notificación" />
-      <img src={Perfil} alt="Perfil" />
+      <img className={s.menu} src={Menu} alt="Menu" />
+      <img className={s.notificacion} src={Notificación} alt="Notificación" />
+      <img className={s.perfil} src={Perfil} alt="Perfil" />
     </div>
   );
 }

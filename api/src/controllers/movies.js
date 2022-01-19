@@ -21,7 +21,7 @@ async function getPopularMovies() {
   );
   const results = data.results.slice(0, 4).map((m) => ({
     id: m.id,
-    img: `https://image.tmdb.org/t/p/w300${m["backdrop_path"]}`,
+    img: `https://image.tmdb.org/t/p/original${m["backdrop_path"]}`,
     title: m.title,
     ranking: m["vote_average"],
     year: m["release_date"].split("-")[0],

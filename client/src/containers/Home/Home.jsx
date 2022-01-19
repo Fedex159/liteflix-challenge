@@ -35,10 +35,7 @@ function Home() {
     <StateGlobal.Provider
       value={{ popularMovies, myMovies, setMyMovies, option, setOption }}
     >
-      <div
-        className={s.container}
-        style={{ backgroundImage: `url(${topMovie.img})` }}
-      >
+      <div className={s.container} style={{ "--url": `url(${topMovie.img})` }}>
         <NavBar />
         <div className={s.movies}>
           <TopMovie title={topMovie.title} />

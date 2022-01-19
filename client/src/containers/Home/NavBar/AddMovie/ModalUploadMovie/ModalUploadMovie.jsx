@@ -134,9 +134,6 @@ function ModalUploadMovie({ handleModal }) {
     <div className={s.container}>
       {!uploaded ? (
         <div className={s.box}>
-          <button className={s.close} onClick={handleModal}>
-            <img src={cerrar} alt="cerrar" />
-          </button>
           <h4 className={s.boxTitle}>AGREGAR PELÍCULA</h4>
 
           {/* -------------- Upload Error --------------- */}
@@ -175,6 +172,10 @@ function ModalUploadMovie({ handleModal }) {
             onClick={handleSubmit}
           >
             SUBIR PELÍCULA
+          </button>
+          <button className={s.close} onClick={handleModal}>
+            <img src={cerrar} alt="cerrar" />
+            <h4>Salir</h4>
           </button>
         </div>
       ) : (

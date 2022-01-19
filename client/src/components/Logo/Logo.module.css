@@ -5,6 +5,7 @@
   font-size: 34px;
   width: fit-content;
   letter-spacing: 4px;
+  grid-area: logo;
 }
 
 .container strong {
