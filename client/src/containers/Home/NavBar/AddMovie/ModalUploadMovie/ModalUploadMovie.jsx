@@ -149,7 +149,7 @@ function ModalUploadMovie({ handleModal }) {
           </button>
         </div>
       ) : (
-        <UploadMessage onClick={handleModal} />
+        <UploadMessage onClick={handleModal} title={movie.title} />
       )}
     </div>
   );
