@@ -72,12 +72,17 @@ function ModalUploadMovie({ handleModal }) {
     setIsUploading(true);
     axios
       .post(
-        "https://api.cloudinary.com/v1_1/fedex159/image/upload",
+        "https://api.cloudinary.com/v1_1/fedex159/image/upload/",
         formData,
         config
       )
       .then((response) =>
-        setMovie((prev) => ({ ...prev, img: response.data.secure_url }))
+        setMovie((prev) => ({
+          ...prev,
+          img: response.data.secure_url
+            .split("upload")
+            .join("upload/c_scale,w_400"),
+        }))
       )
       .catch((err) => {
         console.log(err.message);
