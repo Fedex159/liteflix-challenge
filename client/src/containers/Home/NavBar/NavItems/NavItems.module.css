@@ -5,6 +5,10 @@
   grid-area: items;
 }
 
+.menu {
+  width: 27px;
+}
+
 @media screen and (max-width: 900px) {
   .menu,
   .notificacion {
