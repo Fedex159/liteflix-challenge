@@ -16,6 +16,7 @@
   height: 100%;
   padding: 10px 184px 10px 184px;
   box-sizing: border-box;
+  margin-top: 100px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -28,6 +29,7 @@
   .movies {
     flex-wrap: wrap;
     padding: 0px;
+    margin-top: 0;
   }
 
   .container {

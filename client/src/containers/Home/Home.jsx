@@ -1,7 +1,8 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useRef } from "react";
 import NavBar from "./NavBar/NavBar";
 import TopMovie from "./TopMovie/TopMovie";
 import MoviesContainer from "./MoviesContainer/MoviesContainer";
+import ModalUploadMovie from "./ModalUploadMovie/ModalUploadMovie";
 import { getMovies } from "../../utils";
 import s from "./Home.module.css";
 
@@ -9,10 +10,16 @@ export const StateGlobal = createContext("Default value");
 export const options = ["Populares", "Mis películas"];
 
 function Home() {
+  const ref = useRef(null);
   const [topMovie, setTopMovie] = useState({});
   const [popularMovies, setPopularMovies] = useState([]);
   const [myMovies, setMyMovies] = useState([]);
   const [option, setOption] = useState(options[0]);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   useEffect(() => {
     // Top movie
@@ -31,11 +38,35 @@ function Home() {
       .catch((e) => console.log("my movies", e));
   }, []);
 
+  // Disable scroll when modal is open
+  useEffect(() => {
+    if (ref.current) {
+      const body = ref.current.offsetParent;
+      if (showModal) {
+        body.classList.add("disableScroll");
+      } else {
+        body.classList.remove("disableScroll");
+      }
+    }
+  }, [ref, showModal]);
+
   return (
     <StateGlobal.Provider
-      value={{ popularMovies, myMovies, setMyMovies, option, setOption }}
+      value={{
+        popularMovies,
+        myMovies,
+        setMyMovies,
+        option,
+        setOption,
+        showModal,
+        handleModal,
+      }}
     >
-      <div className={s.container} style={{ "--url": `url(${topMovie.img})` }}>
+      <div
+        ref={ref}
+        className={s.container}
+        style={{ "--url": `url(${topMovie.img})` }}
+      >
         <NavBar />
         <div className={s.movies}>
           <TopMovie title={topMovie.title} />
@@ -45,6 +76,7 @@ function Home() {
             <MoviesContainer movies={myMovies} />
           )}
         </div>
+        {showModal ? <ModalUploadMovie handleModal={handleModal} /> : null}
       </div>
     </StateGlobal.Provider>
   );
