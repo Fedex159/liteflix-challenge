@@ -7,6 +7,17 @@
   border: none;
   width: 248px;
   height: 56px;
+  animation: width 2s ease-out;
+}
+
+@keyframes width {
+  0% {
+    overflow: hidden;
+    height: 0px;
+  }
+  100% {
+    height: 56px;
+  }
 }
 
 .container button:hover {
@@ -20,4 +31,20 @@
   font-weight: bold;
   letter-spacing: 4px;
   color: white;
+}
+
+.container button > * {
+  animation: showContent 3s ease-out;
+}
+
+@keyframes showContent {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

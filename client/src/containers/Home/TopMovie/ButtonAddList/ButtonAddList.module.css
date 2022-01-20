@@ -7,10 +7,37 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   width: 248px;
   height: 56px;
+  animation: width 2s ease-out;
+}
+
+@keyframes width {
+  0% {
+    overflow: hidden;
+    height: 0px;
+  }
+  100% {
+    height: 56px;
+  }
 }
 
 .container button:hover {
   cursor: pointer;
+}
+
+.container button > * {
+  animation: showContent 3s ease-out;
+}
+
+@keyframes showContent {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .title {
