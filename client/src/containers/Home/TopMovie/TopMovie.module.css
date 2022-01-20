@@ -54,7 +54,7 @@
     background-size: var(--size);
     background-repeat: no-repeat;
     background-position: center;
-    animation: zoom 1s linear;
+    animation: zoom 2s ease-out;
   }
 
   @keyframes zoom {
