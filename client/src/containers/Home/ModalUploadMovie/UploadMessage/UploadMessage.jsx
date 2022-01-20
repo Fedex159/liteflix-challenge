@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../../../../../../components/Logo/Logo";
-import cerrar from "../../../../../../assets/imgs/cerrar.png";
+import Logo from "../../../../components/Logo/Logo";
+import cerrar from "../../../../assets/imgs/cerrar.png";
 import s from "./UploadMessage.module.css";
 
 function UploadMessage({ title, onClick }) {
@@ -9,7 +9,9 @@ function UploadMessage({ title, onClick }) {
       <button className={s.close} onClick={onClick}>
         <img src={cerrar} alt="cerrar" />
       </button>
-      <Logo />
+      <div className={s.logo}>
+        <Logo />
+      </div>
       <h4 className={s.title}>¡Felicitaciones!</h4>
       <h5 className={s.subtitle}>{title} fue correctamente subida.</h5>
       <button className={s.buttonHome} onClick={onClick}>

@@ -4,9 +4,9 @@ import UploadError from "./UploadError/UploadError";
 import UploadProgress from "./UploadProgress/UploadProgress";
 import UploadInput from "./UploadInput/UploadInput";
 import UploadMessage from "./UploadMessage/UploadMessage";
-import cerrar from "../../../../../assets/imgs/cerrar.png";
-import { addMovieToDB } from "../../../../../utils";
-import { StateGlobal } from "../../../Home";
+import cerrar from "../../../assets/imgs/cerrar.png";
+import { addMovieToDB } from "../../../utils/index";
+import { StateGlobal } from "../Home";
 import s from "./ModalUploadMovie.module.css";
 
 function ModalUploadMovie({ handleModal }) {

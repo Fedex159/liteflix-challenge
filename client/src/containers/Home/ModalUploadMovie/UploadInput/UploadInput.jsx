@@ -1,5 +1,5 @@
 import React from "react";
-import clip from "../../../../../../assets/imgs/clip.png";
+import clip from "../../../../assets/imgs/clip.png";
 import s from "./UploadInput.module.css";
 
 function UploadInput({ handleDrop, handleInputFile }) {
@@ -11,7 +11,8 @@ function UploadInput({ handleDrop, handleInputFile }) {
     >
       <img src={clip} alt="clip" />
       <p>
-        <strong>Agregá un archivo</strong> o arrastralo y soltalo aquí
+        <strong>Agregá un archivo</strong>
+        <span> o arrastralo y soltalo aquí</span>
       </p>
       <input
         type="file"
