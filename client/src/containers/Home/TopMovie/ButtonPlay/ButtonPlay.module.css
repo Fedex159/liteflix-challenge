@@ -13,10 +13,10 @@
 @keyframes width {
   0% {
     overflow: hidden;
-    height: 0px;
+    width: 0px;
   }
   100% {
-    height: 56px;
+    width: 248px;
   }
 }
 
