@@ -7,9 +7,11 @@ import s from "./NavBar.module.css";
 function NavBar() {
   return (
     <div className={s.container}>
-      <Logo />
-      <AddMovie />
-      <NavItems />
+      <div className={s.content}>
+        <Logo />
+        <AddMovie />
+        <NavItems />
+      </div>
     </div>
   );
 }
