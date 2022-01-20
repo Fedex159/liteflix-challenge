@@ -21,6 +21,16 @@
   font-weight: bold;
   font-size: 120px;
   letter-spacing: 16px;
+  animation: fade 2s ease-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .buttons {
