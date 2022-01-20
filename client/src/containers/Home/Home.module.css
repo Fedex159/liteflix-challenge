@@ -5,8 +5,18 @@
   min-height: 100vh;
   background-image: var(--url);
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  animation: zoom 1s linear;
+}
+
+@keyframes zoom {
+  0% {
+    background-attachment: fixed;
+    background-size: calc(var(--size) + 10%);
+  }
+  100% {
+    background-size: var(--size);
+  }
 }
 
 .movies {

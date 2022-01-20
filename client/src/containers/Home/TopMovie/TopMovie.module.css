@@ -51,9 +51,19 @@
     padding: 214px 10px 50px 10px;
     box-sizing: border-box;
     background-image: var(--url);
+    background-size: var(--size);
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    animation: zoom 1s linear;
+  }
+
+  @keyframes zoom {
+    0% {
+      background-size: calc(var(--size) + 20%);
+    }
+    100% {
+      background-size: var(--size);
+    }
   }
 
   .title {
