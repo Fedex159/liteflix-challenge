@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import plus from "../../../../assets/imgs/plus.png";
+import PlusIcon from "../../../../components/PlusIcon/PlusIcon";
 import { StateGlobal } from "../../Home";
 import s from "./AddMovie.module.css";
 
@@ -12,7 +12,9 @@ function AddMovie() {
         onClick={handleModal}
         style={{ visibility: `${showModal ? "hidden" : "unset"}` }}
       >
-        <img src={plus} alt="plus" />
+        <div className={s.plus}>
+          <PlusIcon />
+        </div>
         <h4>Agregar Película</h4>
       </button>
     </div>

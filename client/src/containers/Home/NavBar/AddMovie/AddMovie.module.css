@@ -13,7 +13,6 @@
   gap: 12px;
   border: none;
   background: none;
-  padding-left: 8px;
 }
 
 .button:hover {
@@ -27,10 +26,11 @@
   font-size: 18px;
   letter-spacing: 4px;
   margin: 0;
+  margin-top: 5px;
 }
 
-.button img {
-  padding-bottom: 4px;
+.plus {
+  width: 16px;
 }
 
 @media screen and (max-width: 900px) {
@@ -46,13 +46,7 @@
     border: 1px solid white;
     border-radius: 50%;
     width: 36px;
-    height: 36px;
+    aspect-ratio: 1 / 1;
     justify-content: center;
-  }
-
-  .button img {
-    padding: 0;
-    padding-right: 5px;
-    filter: drop-shadow(0 0 1px white);
   }
 }
