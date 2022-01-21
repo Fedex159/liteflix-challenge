@@ -4,6 +4,7 @@ import TopMovie from "./TopMovie/TopMovie";
 import MoviesContainer from "./MoviesContainer/MoviesContainer";
 import ModalUploadMovie from "./ModalUploadMovie/ModalUploadMovie";
 import { StateGlobal } from "../Context/Context";
+import start from "../../assets/sounds/start.mp3";
 import s from "./Home.module.css";
 
 function Home() {
@@ -19,6 +20,9 @@ function Home() {
       const img = new Image();
       img.src = topMovie.img;
       setImg(img);
+      // Play sound when load
+      const audio = new Audio(start);
+      audio.play();
     }
   }, [topMovie]);
 
