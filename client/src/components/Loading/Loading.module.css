@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #242424;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 30px;
+  color: #64eebc;
+  letter-spacing: 4px;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border-left: 2px solid #64eebc;
+  animation: spinner 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px #64eebc);
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(2turn);
+  }
+}
