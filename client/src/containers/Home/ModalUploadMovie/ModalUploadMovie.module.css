@@ -92,7 +92,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 720px) {
   .container {
     position: fixed;
   }
@@ -127,5 +127,21 @@
 
   .close img {
     display: none;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .box {
+    justify-content: center;
+  }
+
+  .boxTitle {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .inputTitle {
+    margin: 0;
+    margin-bottom: 20px;
   }
 }

@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 720px) {
   .close {
     display: none;
   }

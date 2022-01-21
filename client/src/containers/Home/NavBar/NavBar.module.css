@@ -48,3 +48,10 @@
     grid-template-areas: "addMovie logo items";
   }
 }
+
+@media screen and (max-height: 720px) {
+  .container {
+    background: none;
+    box-shadow: none;
+  }
+}
