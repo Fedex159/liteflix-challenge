@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PlusIcon from "../../../../components/PlusIcon/PlusIcon";
-import { StateGlobal } from "../../Home";
+import { StateGlobal } from "../../../Context/Context";
 import s from "./AddMovie.module.css";
 
 function AddMovie() {

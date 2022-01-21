@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import check from "../../../../../assets/imgs/check.png";
-import { StateGlobal, options } from "../../../Home";
+import { StateGlobal, options } from "../../../../Context/Context";
 import s from "./BoxDrop.module.css";
 
 const img = <img src={check} alt="check" />;

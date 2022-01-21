@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import arrow from "../../../../assets/imgs/arrow.png";
 import BoxDrop from "./BoxDrop/BoxDrop";
-import { StateGlobal } from "../../Home";
+import { StateGlobal } from "../../../Context/Context";
 import s from "./DropDown.module.css";
 
 function DropDown() {

@@ -6,7 +6,7 @@ import UploadInput from "./UploadInput/UploadInput";
 import UploadMessage from "./UploadMessage/UploadMessage";
 import cerrar from "../../../assets/imgs/cerrar.png";
 import { addMovieToDB } from "../../../utils/index";
-import { StateGlobal } from "../Home";
+import { StateGlobal } from "../../Context/Context";
 import s from "./ModalUploadMovie.module.css";
 
 function ModalUploadMovie({ handleModal }) {
