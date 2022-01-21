@@ -10,10 +10,20 @@ function Context({ children }) {
   const [myMovies, setMyMovies] = useState([]);
   const [option, setOption] = useState(options[0]);
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleModal = () => {
     setShowModal((prev) => !prev);
   };
+
+  // Enable loading
+  useEffect(() => {
+    if (Object.keys(topMovie).length && popularMovies.length) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    }
+  }, [topMovie, popularMovies, myMovies]);
 
   useEffect(() => {
     // Top movie
@@ -36,6 +46,7 @@ function Context({ children }) {
     <div className="context">
       <StateGlobal.Provider
         value={{
+          isLoading,
           topMovie,
           popularMovies,
           myMovies,
