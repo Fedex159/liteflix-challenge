@@ -1,50 +1,26 @@
-import React, { useState, useEffect, createContext, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import NavBar from "./NavBar/NavBar";
 import TopMovie from "./TopMovie/TopMovie";
 import MoviesContainer from "./MoviesContainer/MoviesContainer";
 import ModalUploadMovie from "./ModalUploadMovie/ModalUploadMovie";
-import { getMovies } from "../../utils";
+import { StateGlobal } from "../Context/Context";
 import s from "./Home.module.css";
-
-export const StateGlobal = createContext("Default value");
-export const options = ["Populares", "Mis películas"];
 
 function Home() {
   const ref = useRef(null);
-  const [topMovie, setTopMovie] = useState({});
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [myMovies, setMyMovies] = useState([]);
-  const [option, setOption] = useState(options[0]);
-  const [showModal, setShowModal] = useState(false);
-  const [imageSize, setImageSize] = useState(100);
+  const { handleModal, topMovie, popularMovies, myMovies, showModal, option } =
+    useContext(StateGlobal);
   const [img, setImg] = useState(null);
+  const [imageSize, setImageSize] = useState(100);
 
-  const handleModal = () => {
-    setShowModal((prev) => !prev);
-  };
-
+  // url image
   useEffect(() => {
-    // Top movie
-    getMovies("now_playing")
-      .then((data) => {
-        setTopMovie(data);
-
-        const img = new Image();
-        img.src = data.img;
-        setImg(img);
-      })
-      .catch((e) => console.log("now_playing", e));
-
-    // Popular movies
-    getMovies("popular")
-      .then((data) => setPopularMovies(data))
-      .catch((e) => console.log("popular", e));
-
-    // My Movies
-    getMovies("db")
-      .then((data) => setMyMovies(data))
-      .catch((e) => console.log("my movies", e));
-  }, []);
+    if (Object.keys(topMovie).length) {
+      const img = new Image();
+      img.src = topMovie.img;
+      setImg(img);
+    }
+  }, [topMovie]);
 
   // Disable scroll when modal is open
   useEffect(() => {
@@ -90,38 +66,26 @@ function Home() {
   }, [ref, img]);
 
   return (
-    <StateGlobal.Provider
-      value={{
-        popularMovies,
-        myMovies,
-        setMyMovies,
-        option,
-        setOption,
-        showModal,
-        handleModal,
+    <div
+      ref={ref}
+      className={s.container}
+      style={{
+        "--url": `url(${topMovie.img})`,
+        "--size": `${imageSize}%`,
+        backgroundSize: `${imageSize}%`,
       }}
     >
-      <div
-        ref={ref}
-        className={s.container}
-        style={{
-          "--url": `url(${topMovie.img})`,
-          "--size": `${imageSize}%`,
-          backgroundSize: `${imageSize}%`,
-        }}
-      >
-        <NavBar />
-        <div className={s.movies}>
-          <TopMovie title={topMovie.title} />
-          {option === "Populares" ? (
-            <MoviesContainer movies={popularMovies} />
-          ) : (
-            <MoviesContainer movies={myMovies} />
-          )}
-        </div>
-        {showModal ? <ModalUploadMovie handleModal={handleModal} /> : null}
+      <NavBar />
+      <div className={s.movies}>
+        <TopMovie title={topMovie.title} />
+        {option === "Populares" ? (
+          <MoviesContainer movies={popularMovies} />
+        ) : (
+          <MoviesContainer movies={myMovies} />
+        )}
       </div>
-    </StateGlobal.Provider>
+      {showModal ? <ModalUploadMovie handleModal={handleModal} /> : null}
+    </div>
   );
 }
 
