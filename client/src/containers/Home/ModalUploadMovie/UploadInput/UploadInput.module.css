@@ -34,9 +34,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .container p {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  .container p > span {
+    display: none;
   }
 }
