@@ -1,26 +1,28 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import NavBar from "./NavBar/NavBar";
 import TopMovie from "./TopMovie/TopMovie";
 import MoviesContainer from "./MoviesContainer/MoviesContainer";
 import ModalUploadMovie from "./ModalUploadMovie/ModalUploadMovie";
 import { StateGlobal } from "../Context/Context";
 import start from "../../assets/sounds/start.mp3";
+import BackgroundImg from "../../components/BackgroundImg/BackgroundImg";
 import s from "./Home.module.css";
 
 function Home() {
   const ref = useRef(null);
-  const { handleModal, topMovie, popularMovies, myMovies, showModal, option } =
-    useContext(StateGlobal);
-  const [img, setImg] = useState(null);
-  const [imageSize, setImageSize] = useState(100);
+  const {
+    handleModal,
+    topMovie,
+    popularMovies,
+    myMovies,
+    showModal,
+    option,
+    screenSize,
+  } = useContext(StateGlobal);
 
-  // url image
+  // Play sound when load
   useEffect(() => {
     if (Object.keys(topMovie).length) {
-      const img = new Image();
-      img.src = topMovie.img;
-      setImg(img);
-      // Play sound when load
       const audio = new Audio(start);
       audio.play();
     }
@@ -38,50 +40,14 @@ function Home() {
     }
   }, [ref, showModal]);
 
-  // For animation background
-  useEffect(() => {
-    if (ref.current && img) {
-      const handleResize = () => {
-        const topMoviesRef = ref.current.children[1].children[0];
-
-        const width =
-          ref.current.clientWidth > 900
-            ? ref.current.clientWidth
-            : topMoviesRef.clientWidth;
-        const height =
-          width > 900 ? ref.current.clientHeight : topMoviesRef.clientHeight;
-
-        const ratio = width / height;
-
-        if (ratio < 16 / 9) {
-          setImageSize(Math.ceil(((16 / 9) * 100) / ratio));
-        } else {
-          setImageSize(100);
-        }
-      };
-      handleResize();
-
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  }, [ref, img]);
-
   return (
-    <div
-      ref={ref}
-      className={s.container}
-      style={{
-        "--url": `url(${topMovie.img})`,
-        "--size": `${imageSize}%`,
-        backgroundSize: `${imageSize}%`,
-      }}
-    >
+    <div ref={ref} className={s.container}>
+      {screenSize.width > 900 && screenSize.height > 720 ? (
+        <BackgroundImg src={topMovie.img} />
+      ) : null}
       <NavBar />
       <div className={s.movies}>
-        <TopMovie title={topMovie.title} />
+        <TopMovie title={topMovie.title} img={topMovie.img} />
         {option === "Populares" ? (
           <MoviesContainer movies={popularMovies} />
         ) : (
