@@ -20,19 +20,17 @@
   gap: 20px;
   width: 260px;
   height: 700px;
-  animation: fadeAndShow 2s ease;
+  animation: fade 4s ease-out;
 }
 
-@keyframes fadeAndShow {
+@keyframes fade {
   0% {
     opacity: 0;
-    height: 0px;
-    overflow: hidden;
+    transform: translateY(30px);
   }
   100% {
-    overflow: hidden;
     opacity: 1;
-    height: 100%;
+    transform: translateY(0);
   }
 }
 
@@ -50,5 +48,6 @@
     width: 100%;
     height: 100%;
     overflow-y: unset;
+    min-height: 500px;
   }
 }
