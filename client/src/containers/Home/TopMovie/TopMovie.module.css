@@ -60,20 +60,7 @@
     margin: 0;
     padding: 214px 10px 50px 10px;
     box-sizing: border-box;
-    background-image: var(--url);
-    background-size: var(--size);
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: zoom 2s ease-out;
-  }
-
-  @keyframes zoom {
-    0% {
-      background-size: calc(var(--size) + 20%);
-    }
-    100% {
-      background-size: var(--size);
-    }
+    width: 100%;
   }
 
   .title {
