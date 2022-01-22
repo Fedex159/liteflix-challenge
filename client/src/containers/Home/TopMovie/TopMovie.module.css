@@ -61,6 +61,7 @@
     padding: 214px 10px 50px 10px;
     box-sizing: border-box;
     width: 100%;
+    filter: drop-shadow(0 0 0 transparent);
   }
 
   .title {
