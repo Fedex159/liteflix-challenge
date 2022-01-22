@@ -165,18 +165,20 @@ function ModalUploadMovie({ handleModal }) {
             onChange={handleChange}
             className={s.inputTitle}
           />
-          <button
-            className={`${s.uploadButton} ${
-              !enableSubmit && s.uploadButtonOff
-            }`}
-            onClick={handleSubmit}
-          >
-            SUBIR PELÍCULA
-          </button>
-          <button className={s.close} onClick={handleModal}>
-            <img src={cerrar} alt="cerrar" />
-            <h4>Salir</h4>
-          </button>
+          <div className={s.buttons}>
+            <button
+              className={`${s.uploadButton} ${
+                !enableSubmit && s.uploadButtonOff
+              }`}
+              onClick={handleSubmit}
+            >
+              SUBIR PELÍCULA
+            </button>
+            <button className={s.close} onClick={handleModal}>
+              <img src={cerrar} alt="cerrar" />
+              <h4>Salir</h4>
+            </button>
+          </div>
         </div>
       ) : (
         <UploadMessage onClick={handleModal} title={movie.title} />
