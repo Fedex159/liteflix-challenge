@@ -11,10 +11,30 @@ function Context({ children }) {
   const [option, setOption] = useState(options[0]);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   const handleModal = () => {
     setShowModal((prev) => !prev);
   };
+
+  // Manage screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Enable loading
   useEffect(() => {
@@ -55,6 +75,7 @@ function Context({ children }) {
           setOption,
           showModal,
           handleModal,
+          screenSize,
         }}
       >
         {children}
