@@ -5,7 +5,7 @@ import App from "./App";
 import Context from "./containers/Context/Context";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL = import.meta.env.VITE_API || "http://localhost:3001";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,5 +13,5 @@ ReactDOM.render(
       <App />
     </Context>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
