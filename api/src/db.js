@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, REQUIRE_SSL } = process.env;
 
 let sequelize =
   process.env.NODE_ENV === "production"
@@ -30,7 +30,11 @@ let sequelize =
       })
     : new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}`,
-        { logging: false, native: false },
+        {
+          logging: false,
+          native: false,
+          dialectOptions: { ssl: { require: REQUIRE_SSL === "true" } },
+        },
       );
 
 const basename = path.basename(__filename);
