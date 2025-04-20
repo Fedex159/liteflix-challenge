@@ -2,19 +2,19 @@
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 100;
-  src: url("./assets/fonts/BebasNeue-Book.ttf") format("truetype");
+  src: url("/BebasNeue-Book.ttf") format("truetype");
 }
 @font-face {
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  src: url("/BebasNeue-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 700;
-  src: url("./assets/fonts/BebasNeue-Bold.ttf") format("truetype");
+  src: url("/BebasNeue-Bold.ttf") format("truetype");
 }
 
 body {
@@ -23,8 +23,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .disableScroll {
